@@ -142,7 +142,8 @@ int serial_main_loop(INC_GRP * meta, MAP_GRP * map, MST_GRP * mst, VOTE_GRP * vo
 
   printf(ITER_COUNT);
   for(i = 3; i < meta->n_taxa; i++){
-    print_inline_iteration(i, j, meta->n_taxa, 3);
+    // Commented out on 9.1.2022 by Chengze Shen
+    //print_inline_iteration(i, j, meta->n_taxa, 3);
 
     FCAL(
         GENERAL_ERROR,

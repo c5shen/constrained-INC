@@ -2,7 +2,7 @@
 ifeq ($(strip $(CC)),)
 CC := gcc
 endif
-CC += -Wall -MP -MD 
+CC += -Wall -MP -MD -g3 
 INCMLFLG := -D INC_ML_CMPL
 TESTFLG := -D TEST
 DIR := src/c
