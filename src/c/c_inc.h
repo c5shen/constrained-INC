@@ -379,6 +379,13 @@ static const char F_WRITE_TREE_IN_CINC[]
 
 // static const char ITER_COUNT[] = "current iter is";
 
+// Added on 9.13.2022 by Chengze Shen
+// printout info for calling pplacer/guppy job
+static const char F_PPLACER_IN_CINC[]
+  = "running pplacer after finding the valid subtree for placement \n";
+static const char F_GUPPY_IN_CINC[]
+  = "running guppy after obtaining pplacer jplace file \n";
+
 static const char F_INIT_VOTE_IN_CINC[] 
   = "initializing vote failed in constraint inc \n";
 

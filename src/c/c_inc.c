@@ -163,17 +163,31 @@ int serial_main_loop(INC_GRP * meta, MAP_GRP * map, MST_GRP * mst, VOTE_GRP * vo
         find_valid_subtree(meta, map, mst, vote)
     );
 
+    ////////////////////////////////////////////////////////
+    // Comment on 9.6.2022 by Chengze Shen 
+    // Change the following two function calls to directly invoking
+    // a placement method call using the valid subtree identified above,
+    // with the alignment
     FCAL(
         GENERAL_ERROR,
-        F_BFS_VOTE_IN_CINC,
-        bfs_vote(meta, map, mst, vote, i)
+        F_PPLACER_IN_CINC,
+        pplacer_job()
     );
 
-    FCAL(
-        GENERAL_ERROR,
-        F_ATTACH_IN_CINC,
-        attach_leaf_to_edge(meta, map, mst, vote, i)
-    );
+    // Original code
+    //////////////////////////////
+    //FCAL(
+    //    GENERAL_ERROR,
+    //    F_BFS_VOTE_IN_CINC,
+    //    bfs_vote(meta, map, mst, vote, i)
+    //);
+
+    //FCAL(
+    //    GENERAL_ERROR,
+    //    F_ATTACH_IN_CINC,
+    //    attach_leaf_to_edge(meta, map, mst, vote, i)
+    //);
+    ////////////////////////////////////////////////////////
   }
   printf("\n");
   return 0;

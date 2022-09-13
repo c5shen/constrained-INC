@@ -5,6 +5,22 @@
 
 #include "c_inc.h"
 
+// Added on 9.13.2022 by Chengze Shen
+// pplacer job added for placement right after finding a valid subtree,
+// instead of the original constrained-INC procedure (bfs votes and quartet
+// based placement)
+// model -> model to use (e.g., GTR for nucleotide)
+// in_aln -> alignment of the tree leaves and the query
+// in_tree -> placement tree
+// out_path -> output jplace file
+extern int pplacer_job(char * model, char * in_aln, char * in_tree,
+        char * out_path);
+
+// similarly, the guppy job
+// in_path -> input jplace file
+// out_path -> output tree file
+extern int guppy_job(char * in_path, char * out_path);
+
 extern int test_binary_trees(
     int n,
     char ** filename
@@ -212,6 +228,11 @@ static const char F_RXAML_QTREE_IN_GET_LL[]
   = "raxml_with_quartet_tree_job failed in get_ll_from_raxml\n";
 
 // Error in system
+// pplacer/guppy added on 9.13.2022 by Chengze Shen
+static const char ERR_PPLACER[]
+  = "error in calling pplacer\n";
+static const char ERR_GUPPY[]
+  = "error in calling guppy\n";
 static const char ERR_RXML[]    
   = "error in calling raxml job\n"; 
 static const char ERR_RM_LBL[] 
@@ -276,7 +297,12 @@ static const char IN_JC[]
 
 
 // Bins
+// pplacer/guppy added on 9.13.2022 by Chengze Shen
 #if 1
+static const char pplacer_bin[]
+  = "pplacer";
+static const char guppy_bin[]
+  = "guppy";
 static const char RAxML_bin[]           
   = "raxmlHPC-PTHREADS-AVX2";
 static const char FastTree_bin[]        

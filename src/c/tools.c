@@ -14,6 +14,35 @@
 // Private functions
 int find_prefix_and_dir_from_path(char *, char *, char *, char *);
 
+// Added on 9.13.2022 by Chengze Shen
+// definition of pplacer_job
+int pplacer_job(char * model, char * in_aln, char * in_tree, char * out_path) {
+  SYSCAL(
+      GENERAL_ERROR,
+      ERR_PPLACER,
+      "%s -m %s -t %s -o %s %s",
+      pplacer_bin,
+      model,
+      in_tree,
+      out_path,
+      in_aln
+  );
+  return 0;
+}
+
+// Added on 9.13.2022 by Chengze Shen
+// definition of guppy_job
+int guppy_job(char * in_path, char * out_path) {
+  SYSCAL(
+      GENERAL_ERROR,
+      ERR_GUPPY,
+      "%s tog -o %s %s",
+      guppy_bin,
+      out_path,
+      in_path
+  );
+  return 0;
+}
 
 // A function to check if all input trees are binary. Return 0 if all trees are
 // binary and -1 otherwise.
